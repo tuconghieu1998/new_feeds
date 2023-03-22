@@ -9,6 +9,10 @@ class AssetUtils {
   static const String icoArrowLeft = "assets/icons/ico_arrow_left.png";
   static const String icoArrowRight = "assets/icons/ico_arrow_right.png";
 
+  // gif
+  static const String gifLoading = "assets/gif/gif_loading.gif";
+
+
   //images
   static const String avatar = "assets/images/avatar.png";
 }

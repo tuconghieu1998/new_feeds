@@ -54,6 +54,9 @@ class _MainAppState extends State<MainApp> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedFontSize: 10,
+        unselectedFontSize: 10,
+        showUnselectedLabels: true,
         items: const <BottomNavigationBarItem>[       
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(AssetUtils.icoHome)),

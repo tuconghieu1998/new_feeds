@@ -10,18 +10,20 @@ enum Status {
 }
 
 class Avatar extends StatelessWidget {
-  const Avatar({super.key, this.size, this.onTap, this.status});
+  const Avatar({super.key, this.size, this.onTap, this.status, this.url});
 
   final double? size;
   final Function()? onTap;
   final Status? status;
+  final String? url;
 
   @override
   Widget build(BuildContext context) {
     double sizeImage = size ?? 48;
     return GestureDetector(
       onTap: onTap,
-      child: ImageUtils.loadFromAsset(AssetUtils.avatar, width: sizeImage, height: sizeImage, radius: BorderRadius.circular(sizeImage)),
+      child: url != null ? ImageUtils.loadImgUrl(url ?? "", width: sizeImage, height: sizeImage, radius: BorderRadius.circular(sizeImage))
+      : ImageUtils.loadFromAsset(AssetUtils.avatar, width: sizeImage, height: sizeImage, radius: BorderRadius.circular(sizeImage)),
     );
   }
 }
