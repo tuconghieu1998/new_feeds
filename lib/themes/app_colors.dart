@@ -4,6 +4,8 @@ class AppColor {
   static const Color primaryColor = Color(0xffF54B64);
   static const Color backgroundBottomNavigation = Color(0xff20242F);
   static const Color unselectItems = Color(0xff4E586E);
+  static const Color divideColor = Color(0xff242A37);
+
   
   static const Color blue = Color(0xff007AFF);
   static const Color orange = Color(0xffFF9500);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:news_feed/modules/message/pages/list_message_page.dart';
 import 'package:news_feed/themes/app_colors.dart';
 import 'package:news_feed/utils/asset_utils.dart';
 import 'package:news_feed/utils/image_utils.dart';
@@ -28,10 +29,7 @@ class _MainAppState extends State<MainApp> {
       'Index 1: Stream',
       style: optionStyle,
     ),
-    Text(
-      'Index 2: Messages',
-      style: optionStyle,
-    ),
+    ListMessagePage(),
     Text(
       'Index 3: Notifications',
       style: optionStyle,
