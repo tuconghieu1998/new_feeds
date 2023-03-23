@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:news_feed/common_widget_screen.dart';
+import 'package:news_feed/modules/category/pages/list_category.dart';
 import 'package:news_feed/modules/main_app.dart';
 
 class AllScreens extends StatefulWidget {
@@ -36,6 +37,12 @@ class _AllScreensState extends State<AllScreens> {
                 Navigator.of(context).pushNamed(MainApp.routeName);
               },
               child: const Text("Navigation"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(ListCategory.routeName);
+              },
+              child: const Text("Category"),
             ),
           ]),
         ),
