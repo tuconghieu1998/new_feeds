@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_feed/themes/app_colors.dart';
 
 extension ExtendedTextStyle on TextStyle {
   TextStyle get light {
@@ -49,6 +50,10 @@ extension ExtendedTextStyle on TextStyle {
 
   TextStyle setTextSize(double size) {
     return copyWith(fontSize: size);
+  }
+
+  TextStyle get tagColor {
+    return copyWith(color: AppColor.primaryColor);
   }
 }
 

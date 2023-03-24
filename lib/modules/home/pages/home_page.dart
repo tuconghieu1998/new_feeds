@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:news_feed/common/widgets/stateful/search_bar.dart';
 import 'package:news_feed/common/widgets/stateless/circle_icon_button.dart';
+import 'package:news_feed/modules/home/widgets/post_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -24,7 +25,8 @@ class _HomePageState extends State<HomePage> {
               CircleIconButton()
             ],
           ),
-        )
+        ),
+        PostItem()
       ],
     );
   }
