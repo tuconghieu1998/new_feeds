@@ -21,4 +21,8 @@ class AssetUtils {
   //images
   static const String avatar = "assets/images/avatar.png";
   static const String imgPost = "assets/images/img_post.png";
+  static const String imgNotify1 = "assets/images/img_notify_1.png";
+  static const String imgNotify2 = "assets/images/img_notify_2.png";
+  static const String imgNotify3 = "assets/images/img_notify_3.png";
+  static const String imgNotify4 = "assets/images/img_notify_4.png";
 }

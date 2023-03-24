@@ -15,12 +15,12 @@ class TopBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppSizes.kMediumPadding),
+        padding: const EdgeInsets.symmetric(horizontal: AppSizes.kMediumPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 10),
+              padding: const EdgeInsets.symmetric(vertical: 10),
               child: Row(
                 children: [
                   GestureDetector(
@@ -33,11 +33,11 @@ class TopBarWidget extends StatelessWidget {
                       size: AppSizes.iconSize,
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   if(rightIcon != null) 
                     GestureDetector(
                       onTap: onTapRight,
-                    child: ImageIcon(
+                    child: const ImageIcon(
                       AssetImage(AssetUtils.icoPlus),
                       color: Colors.white,
                       size: AppSizes.iconSize,
@@ -46,14 +46,14 @@ class TopBarWidget extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Text(
               title,
-              style: AppStylesText.headLine1,
+              style: AppStylesText.headLine1.copyWith(fontSize: 34),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             )
           ],

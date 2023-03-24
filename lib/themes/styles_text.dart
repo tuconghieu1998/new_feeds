@@ -55,6 +55,10 @@ extension ExtendedTextStyle on TextStyle {
   TextStyle get tagColor {
     return copyWith(color: AppColor.primaryColor);
   }
+
+  TextStyle get subColor {
+    return copyWith(color: AppColor.unselectItems);
+  }
 }
 
 class AppStylesText {
