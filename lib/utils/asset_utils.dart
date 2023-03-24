@@ -7,7 +7,9 @@ class AssetUtils {
   static const String icoProfile = "assets/icons/ico_profile.png";
   static const String icoPlus = "assets/icons/ico_plus.png";
   static const String icoArrowLeft = "assets/icons/ico_arrow_left.png";
-  static const String icoArrowRight = "assets/icons/ico_arrow_right.png";
+  static const String icoArrowRight = "assets/icons/ico_arrow_right.png"; 
+  static const String icoSearch = "assets/icons/ico_search.png"; 
+  static const String icoCamera = "assets/icons/ico_camera.png"; 
 
   // gif
   static const String gifLoading = "assets/gif/gif_loading.gif";

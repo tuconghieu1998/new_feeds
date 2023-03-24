@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:news_feed/modules/home/pages/home_page.dart';
 import 'package:news_feed/modules/message/pages/list_message_page.dart';
 import 'package:news_feed/themes/app_colors.dart';
 import 'package:news_feed/utils/asset_utils.dart';
@@ -21,10 +22,7 @@ class _MainAppState extends State<MainApp> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
+    HomePage(),
     Text(
       'Index 1: Stream',
       style: optionStyle,

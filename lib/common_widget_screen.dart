@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:news_feed/common/widgets/stateful/search_bar.dart';
 import 'package:news_feed/common/widgets/stateless/avatar.dart';
+import 'package:news_feed/common/widgets/stateless/circle_icon_button.dart';
 import 'package:news_feed/common/widgets/stateless/divide.dart';
 import 'package:news_feed/common/widgets/stateless/top_bar_widget.dart';
 import 'package:news_feed/themes/styles_text.dart';
@@ -57,6 +59,9 @@ class _CommonWidgetScreenState extends State<CommonWidgetScreen> {
               SizedBox(height: 20,),
               Divide(height: 1, color: Colors.white),
               SizedBox(height: 20,),
+              SearchBar(),
+              SizedBox(height: 20,),
+              CircleIconButton()
             ]),
           ),
           ),
