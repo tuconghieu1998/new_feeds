@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_feed/common/widgets/stateless/top_bar_widget.dart';
+import 'package:news_feed/modules/message/widgets/friend_follow_item.dart';
 import 'package:news_feed/modules/message/widgets/social_item.dart';
 import 'package:news_feed/themes/app_colors.dart';
 import 'package:news_feed/themes/styles_text.dart';
@@ -68,9 +69,19 @@ class _FriendPageState extends State<FriendPage> {
                 style: AppStylesText.body20
                     .copyWith(fontWeight: FontWeight.w800, fontSize: 20),
               ),
-              Spacer(),
+              const Spacer(),
               Text("Follow all", style: AppStylesText.body15.copyWith(color: AppColor.primaryColor,)),
           ],)),
+          Expanded(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(children: [
+                FriendFollowItem(isFollowed: false,),
+                FriendFollowItem(isFollowed: true,),
+                FriendFollowItem(isFollowed: false,),
+                FriendFollowItem(isFollowed: true,),
+                FriendFollowItem(isFollowed: true,),
+              ]),))
         ]),
       ),
     );

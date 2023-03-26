@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:news_feed/common/widgets/stateful/search_bar.dart';
 import 'package:news_feed/common/widgets/stateless/avatar.dart';
 import 'package:news_feed/common/widgets/stateless/circle_icon_button.dart';
+import 'package:news_feed/common/widgets/stateless/common_button.dart';
 import 'package:news_feed/common/widgets/stateless/divide.dart';
+import 'package:news_feed/common/widgets/stateless/outline_button.dart';
 import 'package:news_feed/common/widgets/stateless/top_bar_widget.dart';
 import 'package:news_feed/themes/styles_text.dart';
 import 'package:news_feed/utils/asset_utils.dart';
@@ -61,7 +63,12 @@ class _CommonWidgetScreenState extends State<CommonWidgetScreen> {
               SizedBox(height: 20,),
               SearchBar(),
               SizedBox(height: 20,),
-              CircleIconButton()
+              CircleIconButton(),
+              SizedBox(height: 20,),
+              CommonButton(),
+              SizedBox(height: 20,),
+              OutlineButton()
+
             ]),
           ),
           ),
