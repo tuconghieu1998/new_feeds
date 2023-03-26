@@ -23,14 +23,14 @@ class _InviteFriendPageState extends State<InviteFriendPage> {
           Expanded(
             child: SingleChildScrollView(child: 
             Column(children: [
-              InviteFriendItem(),
-              InviteFriendItem(),
-              InviteFriendItem(),
-              InviteFriendItem(),
-              InviteFriendItem(),
-              InviteFriendItem(),
-              InviteFriendItem(),
-              InviteFriendItem(),
+              InviteFriendItem(checked: true,),
+              InviteFriendItem(checked: false),
+              InviteFriendItem(checked: true),
+              InviteFriendItem(checked: true),
+              InviteFriendItem(checked: false),
+              InviteFriendItem(checked: true),
+              InviteFriendItem(checked: true),
+              InviteFriendItem(checked: true),
             ],)
             ))
         ]),

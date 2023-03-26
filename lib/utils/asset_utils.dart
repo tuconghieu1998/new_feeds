@@ -15,6 +15,8 @@ class AssetUtils {
   static const String icoComment = "assets/icons/ico_comment.png"; 
   static const String icoFacebook = "assets/icons/ico_facebook.png"; 
   static const String icoTwitter = "assets/icons/ico_twitter.png"; 
+  static const String icoCheckBoxPlus = "assets/icons/ico_check_box_plus.png"; 
+  static const String icoCheckBoxChecked = "assets/icons/ico_check_box_checked.png"; 
 
   // gif
   static const String gifLoading = "assets/gif/gif_loading.gif";

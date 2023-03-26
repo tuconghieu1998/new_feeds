@@ -4,6 +4,7 @@ import 'package:news_feed/common/widgets/stateless/avatar.dart';
 import 'package:news_feed/common/widgets/stateless/circle_icon_button.dart';
 import 'package:news_feed/common/widgets/stateless/common_button.dart';
 import 'package:news_feed/common/widgets/stateless/divide.dart';
+import 'package:news_feed/common/widgets/stateless/icon_check_box.dart';
 import 'package:news_feed/common/widgets/stateless/outline_button.dart';
 import 'package:news_feed/common/widgets/stateless/top_bar_widget.dart';
 import 'package:news_feed/themes/styles_text.dart';
@@ -67,7 +68,15 @@ class _CommonWidgetScreenState extends State<CommonWidgetScreen> {
               SizedBox(height: 20,),
               CommonButton(),
               SizedBox(height: 20,),
-              OutlineButton()
+              OutlineButton(),
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                IconCheckBox(),
+                SizedBox(width: 50,),
+                IconCheckBox()
+              ],)
 
             ]),
           ),
