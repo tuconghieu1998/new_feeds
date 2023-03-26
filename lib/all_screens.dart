@@ -7,6 +7,7 @@ import 'package:news_feed/modules/category/pages/dowload_file_demo.dart';
 import 'package:news_feed/modules/category/pages/list_category.dart';
 import 'package:news_feed/modules/main_app.dart';
 import 'package:news_feed/modules/message/pages/friend_page.dart';
+import 'package:news_feed/modules/message/pages/invite_friend_page.dart';
 
 class AllScreens extends StatefulWidget {
   const AllScreens({super.key});
@@ -58,6 +59,12 @@ class _AllScreensState extends State<AllScreens> {
                 Navigator.of(context).pushNamed(FriendPage.routeName);
               },
               child: const Text("Friends"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(InviteFriendPage.routeName);
+              },
+              child: const Text("Invite Friends"),
             ),
           ]),
         ),
