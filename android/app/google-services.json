@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "90422264771",
+    "project_id": "newsfeed-ba905",
+    "storage_bucket": "newsfeed-ba905.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90422264771:android:37630b923ebcf51144b376",
+        "android_client_info": {
+          "package_name": "com.example.news_feed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "90422264771-ba4jce91rj52gphv0q6j3ieohuov1qma.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.news_feed",
+            "certificate_hash": "0b8a3b02e8722855003203f006dbbb05433c190f"
+          }
+        },
+        {
+          "client_id": "90422264771-jgm4ek223rr0oka7lsun4lo9cnk7a9ce.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkrYOjf6-7_aSJJR0OswcnKPBtHuxPgus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "90422264771-jgm4ek223rr0oka7lsun4lo9cnk7a9ce.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

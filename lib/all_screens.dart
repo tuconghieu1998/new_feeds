@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:news_feed/common_widget_screen.dart';
+import 'package:news_feed/modules/authentication/login_page.dart';
 import 'package:news_feed/modules/category/pages/donwload_img_page.dart';
 import 'package:news_feed/modules/category/pages/dowload_file_demo.dart';
 import 'package:news_feed/modules/category/pages/list_category.dart';
@@ -65,6 +66,12 @@ class _AllScreensState extends State<AllScreens> {
                 Navigator.of(context).pushNamed(InviteFriendPage.routeName);
               },
               child: const Text("Invite Friends"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(LoginPage.routeName);
+              },
+              child: const Text("Authentication"),
             ),
           ]),
         ),

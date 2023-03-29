@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:news_feed/all_screens.dart';
 import 'package:news_feed/routes/routes.dart';
+import 'modules/firebase/widgets/firebase_initializer.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const FirebaseInitializer(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
