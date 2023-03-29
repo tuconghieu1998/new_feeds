@@ -3,7 +3,9 @@ import 'package:news_feed/common/widgets/stateful/search_bar.dart';
 import 'package:news_feed/common/widgets/stateless/avatar.dart';
 import 'package:news_feed/common/widgets/stateless/circle_icon_button.dart';
 import 'package:news_feed/common/widgets/stateless/common_button.dart';
+import 'package:news_feed/common/widgets/stateless/common_text_field.dart';
 import 'package:news_feed/common/widgets/stateless/divide.dart';
+import 'package:news_feed/common/widgets/stateless/flex_button.dart';
 import 'package:news_feed/common/widgets/stateless/icon_check_box.dart';
 import 'package:news_feed/common/widgets/stateless/outline_button.dart';
 import 'package:news_feed/common/widgets/stateless/top_bar_widget.dart';
@@ -76,8 +78,24 @@ class _CommonWidgetScreenState extends State<CommonWidgetScreen> {
                 IconCheckBox(),
                 SizedBox(width: 50,),
                 IconCheckBox()
-              ],)
-
+              ],),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FlexButton(
+                  text: "Login",
+                  onTap: () { print("Login"); },
+                  isWhiteTheme: true,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FlexButton(
+                  text: "Sign Up",
+                ),
+              ),
+              Padding(padding: const EdgeInsets.all(8.0), 
+              child: CommonTextField(placeHolder: "Email",),
+              )
             ]),
           ),
           ),

@@ -17,6 +17,9 @@ class AssetUtils {
   static const String icoTwitter = "assets/icons/ico_twitter.png"; 
   static const String icoCheckBoxPlus = "assets/icons/ico_check_box_plus.png"; 
   static const String icoCheckBoxChecked = "assets/icons/ico_check_box_checked.png"; 
+  static const String icoFacebookWhite = "assets/icons/ico_facebook_white.png"; 
+  static const String icoTwitterWhite = "assets/icons/ico_twitter_white.png"; 
+  static const String icoGoogleWhite = "assets/icons/ico_google_white.png"; 
 
   // gif
   static const String gifLoading = "assets/gif/gif_loading.gif";
@@ -29,4 +32,8 @@ class AssetUtils {
   static const String imgNotify2 = "assets/images/img_notify_2.png";
   static const String imgNotify3 = "assets/images/img_notify_3.png";
   static const String imgNotify4 = "assets/images/img_notify_4.png";
+  static const String backgroundImage1 = "assets/images/background_image_1.png";
+  static const String backgroundImage2 = "assets/images/background_image_2.png";
+  static const String backgroundImage3 = "assets/images/background_image_3.png";
+  static const String backgroundImage4 = "assets/images/background_image_4.png";
 }
