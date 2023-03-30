@@ -3,6 +3,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:news_feed/common_widget_screen.dart';
 import 'package:news_feed/modules/authentication/login_page.dart';
+import 'package:news_feed/modules/authentication/pages/create_account_page.dart';
+import 'package:news_feed/modules/authentication/pages/forgot_password_page.dart';
 import 'package:news_feed/modules/authentication/pages/login_or_sign_up_page.dart';
 import 'package:news_feed/modules/authentication/pages/login_page.dart';
 import 'package:news_feed/modules/category/pages/donwload_img_page.dart';
@@ -89,13 +91,13 @@ class _AllScreensState extends State<AllScreens> {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushNamed(LoginPage.routeName);
+                Navigator.of(context).pushNamed(ForgotPasswordPage.routeName);
               },
               child: const Text("Forgot Password"),
             ),
             ElevatedButton(
               onPressed: () {
-                // Navigator.of(context).pushNamed(LoginPage.routeName);
+                Navigator.of(context).pushNamed(CreateAccountPage.routeName);
               },
               child: const Text("Create an account"),
             ),

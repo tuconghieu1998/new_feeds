@@ -20,6 +20,7 @@ class AssetUtils {
   static const String icoFacebookWhite = "assets/icons/ico_facebook_white.png"; 
   static const String icoTwitterWhite = "assets/icons/ico_twitter_white.png"; 
   static const String icoGoogleWhite = "assets/icons/ico_google_white.png"; 
+  static const String icoClose = "assets/icons/ico_close.png"; 
 
   // gif
   static const String gifLoading = "assets/gif/gif_loading.gif";

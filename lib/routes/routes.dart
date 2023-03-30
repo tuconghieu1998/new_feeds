@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_feed/common_widget_screen.dart';
+import 'package:news_feed/modules/authentication/pages/create_account_page.dart';
+import 'package:news_feed/modules/authentication/pages/forgot_password_page.dart';
 import 'package:news_feed/modules/authentication/pages/login_page.dart';
 import 'package:news_feed/modules/authentication/pages/login_or_sign_up_page.dart';
 import 'package:news_feed/modules/category/pages/donwload_img_page.dart';
@@ -19,4 +21,6 @@ final Map<String, WidgetBuilder> routes = {
   DownloadFileDemo.routeName: (context) => const DownloadFileDemo(),
   LoginPage.routeName: (context) => const LoginPage(),
   LoginOrSignUpPage.routeName: (context) => const LoginOrSignUpPage(),
+  ForgotPasswordPage.routeName: (context) => const ForgotPasswordPage(),
+  CreateAccountPage.routeName: (context) => const CreateAccountPage(),
 };
