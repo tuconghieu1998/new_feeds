@@ -21,6 +21,10 @@ class AssetUtils {
   static const String icoTwitterWhite = "assets/icons/ico_twitter_white.png"; 
   static const String icoGoogleWhite = "assets/icons/ico_google_white.png"; 
   static const String icoClose = "assets/icons/ico_close.png"; 
+  static const String icoGridView = "assets/icons/ico_grid_view.png"; 
+  static const String icoPicture = "assets/icons/ico_picture.png"; 
+  static const String icoVideo = "assets/icons/ico_video.png"; 
+  static const String icoPlayList = "assets/icons/ico_playlist.png"; 
 
   // gif
   static const String gifLoading = "assets/gif/gif_loading.gif";
