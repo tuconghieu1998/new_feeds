@@ -6,8 +6,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:news_feed/constants.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class LoginTestPage extends StatelessWidget {
+  const LoginTestPage({super.key});
 
   static const String routeName = "/test_login_page";
 

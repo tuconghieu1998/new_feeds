@@ -85,4 +85,12 @@ class AppColor {
       Color.fromRGBO(0, 0, 0, 0.3),
     ],
   );
+  static const Gradient scrimDarkerTop30Bottom100 = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      Color.fromRGBO(36, 42, 55, 0.28),
+      Color.fromRGBO(36, 42, 55, 1),
+    ],
+  );
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_feed/common_widget_screen.dart';
-import 'package:news_feed/modules/authentication/login_page.dart';
+import 'package:news_feed/modules/authentication/pages/login_page.dart';
 import 'package:news_feed/modules/authentication/pages/login_or_sign_up_page.dart';
 import 'package:news_feed/modules/category/pages/donwload_img_page.dart';
 import 'package:news_feed/modules/category/pages/dowload_file_demo.dart';
