@@ -9,10 +9,13 @@ import 'package:news_feed/modules/authentication/pages/login_or_sign_up_page.dar
 import 'package:news_feed/modules/category/pages/donwload_img_page.dart';
 import 'package:news_feed/modules/category/pages/dowload_file_demo.dart';
 import 'package:news_feed/modules/category/pages/list_category.dart';
+import 'package:news_feed/modules/home/blocs/home_feed_rxdart_bloc.dart';
 import 'package:news_feed/modules/home/pages/home_page.dart';
+import 'package:news_feed/modules/home/repos/home_feed_repo.dart';
 import 'package:news_feed/modules/main_app.dart';
 import 'package:news_feed/modules/message/pages/friend_page.dart';
 import 'package:news_feed/modules/message/pages/invite_friend_page.dart';
+import 'package:news_feed/providers/bloc_provider.dart';
 import 'package:news_feed/routes/route_name.dart';
 
 final Map<String, WidgetBuilder> routes = {
@@ -36,11 +39,11 @@ class Routes {
       case '/':
         return _buildRoute(
           settings,
-          const MainApp()
-          // BlocProvider(
-          //   bloc: ListPostsRxDartBloc()..getPosts(),
-          //   child: const DashboardPage(),
-          // ),
+          //const MainApp()
+          BlocProvider(
+            bloc: HomeFeedRxDartBloc()..getPosts(),
+            child: const MainApp(),
+          ),
         );
       //case RouteName.profile:
       // return _buildRouteDialog(
