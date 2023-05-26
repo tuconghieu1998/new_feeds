@@ -1,6 +1,6 @@
 import 'package:news_feed/models/avatar_model.dart';
 
-class User {
+class UserPost {
   String? id;
   String? username;
   String? firstName;
@@ -10,7 +10,7 @@ class User {
   bool? isVerified;
   String? createdAt;
 
-  User(
+  UserPost(
       {this.id,
       this.username,
       this.firstName,
@@ -20,7 +20,7 @@ class User {
       this.isVerified,
       this.createdAt});
 
-  User.fromJson(Map<String, dynamic> json) {
+  UserPost.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     username = json['username'];
     firstName = json['first_name'];

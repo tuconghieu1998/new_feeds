@@ -5,6 +5,7 @@ import 'package:rxdart/rxdart.dart';
 
 class HomeFeedRxDartBloc extends BlocBase {
   final _postsCtrl = BehaviorSubject<List<Post>?>.seeded(const []);
+  Stream<List<Post>?> get postsStream => _postsCtrl.stream;
 
   Future<void> getPosts() async {
     try {

@@ -22,7 +22,7 @@ class Avatar extends StatelessWidget {
     double sizeImage = size ?? 48;
     return GestureDetector(
       onTap: onTap,
-      child: //url != null ? ImageUtils.loadAvatar(url ?? "", width: sizeImage, height: sizeImage, radius: BorderRadius.circular(sizeImage))
+      child: url != null ? ImageUtils.loadAvatar(url ?? "", width: sizeImage, height: sizeImage, radius: BorderRadius.circular(sizeImage)) :
       ImageUtils.loadFromAsset(AssetUtils.avatar, width: sizeImage, height: sizeImage, radius: BorderRadius.circular(sizeImage)),
     );
   }

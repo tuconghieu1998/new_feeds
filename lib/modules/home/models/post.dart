@@ -1,5 +1,5 @@
 import 'package:news_feed/models/image_model.dart';
-import 'package:news_feed/models/user_model.dart';
+import 'package:news_feed/modules/home/models/user_post.dart';
 
 class Post {
   String? id;
@@ -13,8 +13,8 @@ class Post {
   int? likeCounts;
   int? viewCounts;
   int? pulseScore;
-  //Null tags;
-  User? user;
+  // Null tags;
+  UserPost? user;
   bool? liked;
 
   Post(
@@ -51,7 +51,7 @@ class Post {
     viewCounts = json['view_counts'];
     pulseScore = json['pulse_score'];
     //tags = json['tags'];
-    user = json['user'] != null ? User.fromJson(json['user']) : null;
+    user = json['user'] != null ? UserPost.fromJson(json['user']) : null;
     liked = json['liked'];
   }
 

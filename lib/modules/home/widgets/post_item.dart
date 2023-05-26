@@ -1,21 +1,21 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:news_feed/common/widgets/stateless/avatar.dart';
+import 'package:news_feed/modules/home/models/post.dart';
 import 'package:news_feed/modules/home/widgets/action_post_item.dart';
 import 'package:news_feed/themes/app_colors.dart';
 import 'package:news_feed/themes/styles_text.dart';
 import 'package:news_feed/utils/asset_utils.dart';
 import 'package:news_feed/utils/image_utils.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class PostItem extends StatelessWidget {
-  const PostItem({super.key});
+  const PostItem({super.key, this.data});
+  final Post? data;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 15),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: AppColor.divideColor,
@@ -32,6 +32,9 @@ class PostItem extends StatelessWidget {
         children: [
           Stack(
             children: [
+              (data!.images!.isNotEmpty) ? 
+              ImageUtils.loadImgUrl(data!.images![0].url ?? "",
+                  width: double.infinity, height: 245, fit: BoxFit.cover,radius: BorderRadius.only(topLeft: Radius.circular(8), topRight: Radius.circular(8))):
               ImageUtils.loadFromAsset(AssetUtils.imgPost,
                   width: double.infinity, height: 245, fit: BoxFit.fill,radius: BorderRadius.only(topLeft: Radius.circular(8), topRight: Radius.circular(8))),
               Container(
@@ -46,7 +49,8 @@ class PostItem extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Avatar(
+                      Avatar(
+                        url: data?.user?.avatar?.url,
                         size: 45,
                       ),
                       const SizedBox(
@@ -56,11 +60,11 @@ class PostItem extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Pearl Freeman",
+                            (data?.user?.lastName ?? "") + (data?.user?.firstName ?? ""),
                             style: AppStylesText.body17.copyWith(fontSize: 17, height: 17/17),
                           ),
-                          Text("2 hours ago", style: AppStylesText.caption13.copyWith(
-                            color: Colors.white.withOpacity(0.5), 
+                          Text(timeago.format(DateTime.parse(data?.createdAt ?? "")), style: AppStylesText.caption13.copyWith(
+                            color: Colors.white.withOpacity(0.7), 
                             height: 18/13
                             ))
                         ],
@@ -71,22 +75,26 @@ class PostItem extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 17),
-            child: Column(children: [
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
               Row(
-                children: [Text("#relax", style: AppStylesText.body15.tagColor,),
+                children: [
+                  Text("#relax", style: AppStylesText.body15.tagColor,),
                  Text(", ",  style: AppStylesText.body15.tagColor,), 
                  Text("#travel",  style: AppStylesText.body15.tagColor,)],
               ),
-              const Text(
-                  """Coventry is a city with a thousand years of history that has plenty to offer the visiting tourist. Located in the heart of Warwickshire, which is well-known as Shakespeare’s county.""", 
+              Text(
+                  //"""Coventry is a city with a thousand years of history that has plenty to offer the visiting tourist. Located in the heart of Warwickshire, which is well-known as Shakespeare’s county.""", 
+                  data?.description ?? "",
                   style: AppStylesText.body15,
                   ),
                   const SizedBox(height: 25,),
               Row(
-                children: const [
-                  ActionPostItem(iconString: AssetUtils.icoHeart,),
-                  SizedBox(width: 25,),
-                  ActionPostItem(iconString: AssetUtils.icoComment,),
+                children: [
+                  ActionPostItem(iconString: AssetUtils.icoHeart, count: data?.likeCounts ?? 0,),
+                  const SizedBox(width: 25,),
+                  ActionPostItem(iconString: AssetUtils.icoComment, count: data?.commentCounts ?? 0,),
                   Spacer(),
                   ActionPostItem(iconString: AssetUtils.icoLeft,),
                 ],
