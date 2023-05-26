@@ -10,6 +10,7 @@ import 'package:news_feed/modules/category/pages/donwload_img_page.dart';
 import 'package:news_feed/modules/category/pages/dowload_file_demo.dart';
 import 'package:news_feed/modules/category/pages/list_category.dart';
 import 'package:news_feed/modules/home/blocs/home_feed_rxdart_bloc.dart';
+import 'package:news_feed/modules/home/pages/comment_page.dart';
 import 'package:news_feed/modules/home/pages/home_page.dart';
 import 'package:news_feed/modules/home/repos/home_feed_repo.dart';
 import 'package:news_feed/modules/main_app.dart';
@@ -31,6 +32,7 @@ final Map<String, WidgetBuilder> routes = {
   LoginOrSignUpPage.routeName: (context) => const LoginOrSignUpPage(),
   ForgotPasswordPage.routeName: (context) => const ForgotPasswordPage(),
   CreateAccountPage.routeName: (context) => const CreateAccountPage(),
+  CommentPage.routeName: (context) => const CommentPage(),
 };
 
 class Routes {
@@ -45,6 +47,8 @@ class Routes {
             child: const MainApp(),
           ),
         );
+      case CommentPage.routeName:
+        return _buildRoute(settings, CommentPage());
       //case RouteName.profile:
       // return _buildRouteDialog(
       //   settings,

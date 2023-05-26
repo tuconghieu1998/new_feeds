@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_feed/common/widgets/stateless/avatar.dart';
 import 'package:news_feed/modules/home/models/post.dart';
+import 'package:news_feed/modules/home/pages/comment_page.dart';
 import 'package:news_feed/modules/home/widgets/action_post_item.dart';
 import 'package:news_feed/themes/app_colors.dart';
 import 'package:news_feed/themes/styles_text.dart';
@@ -94,7 +95,13 @@ class PostItem extends StatelessWidget {
                 children: [
                   ActionPostItem(iconString: AssetUtils.icoHeart, count: data?.likeCounts ?? 0,),
                   const SizedBox(width: 25,),
-                  ActionPostItem(iconString: AssetUtils.icoComment, count: data?.commentCounts ?? 0,),
+                  ActionPostItem(
+                    iconString: AssetUtils.icoComment, 
+                    count: data?.commentCounts ?? 0,
+                    onTap: () {
+                      Navigator.of(context).pushNamed(CommentPage.routeName);
+                    },
+                  ),
                   Spacer(),
                   ActionPostItem(iconString: AssetUtils.icoLeft,),
                 ],
