@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:news_feed/common/widgets/stateless/avatar.dart';
+import 'package:news_feed/modules/profile/blocs/profile_bloc.dart';
+import 'package:news_feed/modules/profile/models/user_detail_model.dart';
 import 'package:news_feed/modules/profile/widgets/list_post_tab.dart';
+import 'package:news_feed/providers/bloc_provider.dart';
 import 'package:news_feed/themes/app_colors.dart';
 import 'package:news_feed/themes/styles_text.dart';
 import 'package:news_feed/utils/asset_utils.dart';
@@ -17,12 +20,12 @@ class MyProfilePage extends StatefulWidget {
 }
 
 class _MyProfilePageState extends State<MyProfilePage> with SingleTickerProviderStateMixin {
+  ProfileBloc? get bloc => BlocProvider.of<ProfileBloc>(context);
 
   late TabController _tabController;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _tabController = TabController(length: 4, initialIndex: 0, vsync: this);
   }
@@ -45,30 +48,47 @@ class _MyProfilePageState extends State<MyProfilePage> with SingleTickerProvider
               const SizedBox(height: 15,),
               const BackButton.BackButton(),
               const SizedBox(height: 15,),
-              Padding(
+              StreamBuilder<UserDetail?> (
+                stream: bloc!.userDetailStream,
+                builder: ((context, snapshot) {
+                  if(snapshot.hasData) {
+                    final userDetail = snapshot.data;
+                    return Column(children: [
+                      Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: Row(children: [
-                  const Avatar(size: 88,),
+                  Avatar(url: userDetail?.avatar?.url, size: 88,),
                   const SizedBox(width: 20,),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                    Text("Blanche Hall", style: AppStylesText.headLine2.copyWith(fontSize: 28),),
-                    Text("@jorgecutis", style: AppStylesText.caption13.copyWith(color: AppColor.unselectItems,))
+                    Text((userDetail?.firstName ?? "") + (userDetail?.lastName??""), style: AppStylesText.headLine2.copyWith(fontSize: 28),),
+                    Text(userDetail?.email ?? "", style: AppStylesText.caption13.copyWith(color: AppColor.unselectItems,))
                   ],)
                 ],),
               ),
               const SizedBox(height: 35,),
               Row(children: [
-                Text("128", style: AppStylesText.body15,),
-                Text(" Posts", style: AppStylesText.body15.copyWith(color: AppColor.unselectItems,)),
+                Text(userDetail!.counters!.photos.toString(), style: AppStylesText.body15,),
+                Text(" Photos", style: AppStylesText.body15.copyWith(color: AppColor.unselectItems,)),
                 Spacer(),
-                Text("3120", style: AppStylesText.body15,),
+                Text(userDetail.counters!.followings.toString(), style: AppStylesText.body15,),
                 Text(" Following", style: AppStylesText.body15.copyWith(color: AppColor.unselectItems,)),
                 Spacer(),
-                Text("5024", style: AppStylesText.body15,),
+                Text(userDetail.counters!.followers.toString(), style: AppStylesText.body15,),
                 Text(" Follower", style: AppStylesText.body15.copyWith(color: AppColor.unselectItems,)),
               ],)
+                    ],);
+                  }
+                  if(snapshot.hasError) {
+                    return Text(snapshot.error.toString());                  
+                  }
+                  return const Center(
+                child: CircularProgressIndicator(),
+              ); 
+                })
+                )
+              
             ],
           ),
         ),

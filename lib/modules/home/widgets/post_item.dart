@@ -32,7 +32,7 @@ class PostItem extends StatelessWidget {
         children: [
           Stack(
             children: [
-              (data!.images!.isNotEmpty) ? 
+              (data?.images != null && data!.images!.isNotEmpty) ? 
               ImageUtils.loadImgUrl(data!.images![0].url ?? "",
                   width: double.infinity, height: 245, fit: BoxFit.cover,radius: BorderRadius.only(topLeft: Radius.circular(8), topRight: Radius.circular(8))):
               ImageUtils.loadFromAsset(AssetUtils.imgPost,
@@ -63,7 +63,7 @@ class PostItem extends StatelessWidget {
                             (data?.user?.lastName ?? "") + (data?.user?.firstName ?? ""),
                             style: AppStylesText.body17.copyWith(fontSize: 17, height: 17/17),
                           ),
-                          Text(timeago.format(DateTime.parse(data?.createdAt ?? "")), style: AppStylesText.caption13.copyWith(
+                          Text(timeago.format(data?.createdAt != null ? DateTime.parse(data?.createdAt ?? "") : DateTime.now()), style: AppStylesText.caption13.copyWith(
                             color: Colors.white.withOpacity(0.7), 
                             height: 18/13
                             ))
