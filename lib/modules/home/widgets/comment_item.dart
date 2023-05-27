@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:news_feed/common/widgets/stateless/avatar.dart';
 import 'package:news_feed/common/widgets/stateless/divide.dart';
+import 'package:news_feed/modules/home/models/comment.dart';
 import 'package:news_feed/themes/app_colors.dart';
 import 'package:news_feed/themes/styles_text.dart';
 
 class CommentItem extends StatelessWidget {
-  const CommentItem({super.key});
+  const CommentItem({super.key, this.data});
+  final Comment? data;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,8 @@ class CommentItem extends StatelessWidget {
               SizedBox(height: 5,),
             Text("Eugene Rodriquez", style: AppStylesText.body17.copyWith(fontSize: 22),),
             Text("2 hours ago", style: AppStylesText.caption13.copyWith(color: AppColor.unselectItems),),
-            Text("If you are an entrepreneur, you know that your success cannot depend on the opinions of others. ",
+            Text(
+              data?.content ?? "",
               style: AppStylesText.body17.copyWith(fontSize: 17, fontWeight: FontWeight.w400),
             ),
             GestureDetector(child: Padding(

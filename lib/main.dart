@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:news_feed/all_screens.dart';
 import 'package:news_feed/app.dart';
+import 'package:news_feed/config_env.dart';
 import 'package:news_feed/routes/routes.dart';
 import 'modules/firebase/widgets/firebase_initializer.dart';
 
 void main() {
+  ConfigEnv.appFlavor = Flavor.staging;
   //runApp(const FirebaseInitializer(child: MyApp()));
   runApp(
     MyApp(),

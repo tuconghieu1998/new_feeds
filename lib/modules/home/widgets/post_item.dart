@@ -99,7 +99,8 @@ class PostItem extends StatelessWidget {
                     iconString: AssetUtils.icoComment, 
                     count: data?.commentCounts ?? 0,
                     onTap: () {
-                      Navigator.of(context).pushNamed(CommentPage.routeName);
+                      if(data?.id == null) return;
+                      Navigator.of(context).pushNamed(CommentPage.routeName, arguments: {"postId": data?.id});
                     },
                   ),
                   Spacer(),

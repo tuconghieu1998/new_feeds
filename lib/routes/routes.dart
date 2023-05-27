@@ -9,6 +9,7 @@ import 'package:news_feed/modules/authentication/pages/login_or_sign_up_page.dar
 import 'package:news_feed/modules/category/pages/donwload_img_page.dart';
 import 'package:news_feed/modules/category/pages/dowload_file_demo.dart';
 import 'package:news_feed/modules/category/pages/list_category.dart';
+import 'package:news_feed/modules/home/blocs/comment_bloc.dart';
 import 'package:news_feed/modules/home/blocs/home_feed_rxdart_bloc.dart';
 import 'package:news_feed/modules/home/pages/comment_page.dart';
 import 'package:news_feed/modules/home/pages/home_page.dart';
@@ -48,7 +49,14 @@ class Routes {
           ),
         );
       case CommentPage.routeName:
-        return _buildRoute(settings, CommentPage());
+        final arguments = settings.arguments as Map; 
+        final postId = arguments['postId'];
+        return _buildRoute(
+          settings, 
+          BlocProvider(
+            bloc: CommentBloc()..getComments(postId),
+            child: const CommentPage()
+        ));
       //case RouteName.profile:
       // return _buildRouteDialog(
       //   settings,
