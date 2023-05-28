@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:news_feed/common/widgets/stateless/avatar.dart';
+import 'package:news_feed/modules/home/blocs/post_bloc.dart';
 import 'package:news_feed/modules/home/models/post.dart';
 import 'package:news_feed/modules/home/pages/comment_page.dart';
 import 'package:news_feed/modules/home/widgets/action_post_item.dart';
+import 'package:news_feed/providers/bloc_provider.dart';
+import 'package:news_feed/providers/log_provider.dart';
 import 'package:news_feed/themes/app_colors.dart';
 import 'package:news_feed/themes/styles_text.dart';
 import 'package:news_feed/utils/asset_utils.dart';
 import 'package:news_feed/utils/image_utils.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
+
 class PostItem extends StatelessWidget {
   const PostItem({super.key, this.data});
   final Post? data;
+
+  LogProvider get logger => const LogProvider("PostItem");
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +99,21 @@ class PostItem extends StatelessWidget {
                   const SizedBox(height: 25,),
               Row(
                 children: [
-                  ActionPostItem(iconString: AssetUtils.icoHeart, count: data?.likeCounts ?? 0,),
+                  ActionPostItem(
+                    iconString: AssetUtils.icoHeart,
+                    count: data?.likeCounts ?? 0,
+                    onTap: () async {
+                      if(data?.id != null) {
+                        final bloc = BlocProvider.of<PostBloc>(context);
+                        if(bloc == null) {print("bloc null");}
+                        final isSuccess = await bloc?.likePost(data?.id ?? "");
+                        logger.log("Like $isSuccess");
+                        if(isSuccess == true) {
+                          
+                        }
+                      }
+                    },
+                  ),
                   const SizedBox(width: 25,),
                   ActionPostItem(
                     iconString: AssetUtils.icoComment, 

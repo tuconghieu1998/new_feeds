@@ -3,6 +3,7 @@ import 'package:news_feed/blocs/app_state_bloc.dart';
 import 'package:news_feed/common/widgets/stateful/search_bar.dart';
 import 'package:news_feed/common/widgets/stateless/circle_icon_button.dart';
 import 'package:news_feed/modules/home/blocs/home_feed_rxdart_bloc.dart';
+import 'package:news_feed/modules/home/blocs/post_bloc.dart';
 import 'package:news_feed/modules/home/models/post.dart';
 import 'package:news_feed/modules/home/widgets/post_item.dart';
 import 'package:news_feed/providers/bloc_provider.dart';
@@ -42,7 +43,11 @@ class _HomePageState extends State<HomePage> {
                     itemCount: posts.length,
                     itemBuilder: (_, int index) {
                       final item = posts[index];
-                      return PostItem(data: item);
+                      return BlocProvider(
+                        child: PostItem(data: item),
+                        bloc: PostBloc()
+                      );
+                       
                     }
                   );
                 } 
