@@ -1,6 +1,7 @@
 import 'package:news_feed/models/image_model.dart';
 import 'package:news_feed/modules/home/models/user_post.dart';
 
+
 class Post {
   String? id;
   int? status;
@@ -9,7 +10,7 @@ class Post {
   String? title;
   String? description;
   int? commentCounts;
-  List<Image>? images;
+  List<ImageModel>? images;
   int? likeCounts;
   int? viewCounts;
   int? pulseScore;
@@ -42,9 +43,9 @@ class Post {
     description = json['description'];
     commentCounts = json['comment_counts'];
     if (json['images'] != null) {
-      images = <Image>[];
+      images = <ImageModel>[];
       json['images'].forEach((v) {
-        images!.add(Image.fromJson(v));
+        images!.add(ImageModel.fromJson(v));
       });
     }
     likeCounts = json['like_counts'];

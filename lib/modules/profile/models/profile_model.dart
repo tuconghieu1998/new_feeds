@@ -2,7 +2,7 @@ import 'package:news_feed/models/image_model.dart';
 
 class Profile {
   int? cityId;
-  List<Image>? coverImages;
+  List<ImageModel>? coverImages;
   List<String>? interestTopics;
   int? castPriceMin;
   int? castPriceMax;
@@ -37,9 +37,9 @@ class Profile {
   Profile.fromJson(Map<String, dynamic> json) {
     cityId = json['city_id'];
     if (json['cover_images'] != null) {
-      coverImages = <Image>[];
+      coverImages = <ImageModel>[];
       json['cover_images'].forEach((v) {
-        coverImages!.add(Image.fromJson(v));
+        coverImages!.add(ImageModel.fromJson(v));
       });
     }
     interestTopics = json['interest_topics'];

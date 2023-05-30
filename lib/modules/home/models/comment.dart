@@ -9,7 +9,7 @@ class Comment {
   String? content;
   String? replyForId;
   CommentUser? user;
-  Image? image;
+  ImageModel? image;
   bool? liked;
   // Null replyComments;
 

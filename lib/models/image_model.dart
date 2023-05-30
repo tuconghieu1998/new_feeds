@@ -1,4 +1,4 @@
-class Image {
+class ImageModel {
   String? id;
   String? url;
   int? orgWidth;
@@ -8,7 +8,7 @@ class Image {
   String? dominantColor;
   int? fileSize;
 
-  Image(
+  ImageModel(
       {this.id,
       this.url,
       this.orgWidth,
@@ -18,7 +18,7 @@ class Image {
       this.dominantColor,
       this.fileSize});
 
-  Image.fromJson(Map<String, dynamic> json) {
+  ImageModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     url = json['url'];
     orgWidth = json['org_width'];
