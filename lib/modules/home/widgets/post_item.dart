@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'package:news_feed/blocs/app_event_bloc.dart';
 import 'package:news_feed/common/widgets/stateful/toggle.dart';
 import 'package:news_feed/common/widgets/stateless/avatar.dart';
+import 'package:news_feed/modules/home/blocs/like_bloc.dart';
 import 'package:news_feed/modules/home/blocs/post_bloc.dart';
 import 'package:news_feed/modules/home/models/post.dart';
 import 'package:news_feed/modules/home/pages/comment_page.dart';
+import 'package:news_feed/modules/home/repos/like_repo.dart';
 import 'package:news_feed/modules/home/widgets/action_post_item.dart';
 import 'package:news_feed/providers/bloc_provider.dart';
 import 'package:news_feed/providers/log_provider.dart';
@@ -11,6 +15,7 @@ import 'package:news_feed/themes/app_colors.dart';
 import 'package:news_feed/themes/styles_text.dart';
 import 'package:news_feed/utils/asset_utils.dart';
 import 'package:news_feed/utils/image_utils.dart';
+import 'package:news_feed/utils/model_type.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:provider/provider.dart';
 
@@ -27,6 +32,7 @@ class _PostItemState extends State<PostItem> {
   LogProvider get logger => const LogProvider("PostItem");
   Post? get data => widget.data;
   bool isLiked = false;
+  final likeBloc = LikeBloc(LikeRepo(ModelType.post));
 
   @override
   void initState() {
@@ -41,12 +47,13 @@ class _PostItemState extends State<PostItem> {
   }
 
   Future<void> _handleLikePost(bool isLiked) async {
-    // !isLiked ? await likeBloc.unlike(post.id!) : await likeBloc.like(post.id!);
+    if(data?.id == null) return;
+    !isLiked ? await likeBloc.unlike(data!.id ?? "") : await likeBloc.like(data!.id ?? "");
 
-    // final event =
-    //     !isLiked ? EventName.unLikePostDetail : EventName.likePostDetail;
+    final event =
+        !isLiked ? EventName.unLikePostDetail : EventName.likePostDetail;
 
-    // AppEventBloc().emitEvent(BlocEvent(event, post.id));
+    AppEventBloc().emitEvent(BlocEvent(event, data?.id));
   }
 
   @override

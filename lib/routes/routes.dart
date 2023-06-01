@@ -11,6 +11,7 @@ import 'package:news_feed/modules/category/pages/dowload_file_demo.dart';
 import 'package:news_feed/modules/category/pages/list_category.dart';
 import 'package:news_feed/modules/home/blocs/comment_bloc.dart';
 import 'package:news_feed/modules/home/blocs/home_feed_rxdart_bloc.dart';
+import 'package:news_feed/modules/home/blocs/list_posts_rxdart_bloc.dart';
 import 'package:news_feed/modules/home/pages/comment_page.dart';
 import 'package:news_feed/modules/home/pages/home_page.dart';
 import 'package:news_feed/modules/home/repos/home_feed_repo.dart';
@@ -44,7 +45,7 @@ class Routes {
           settings,
           //const MainApp()
           BlocProvider(
-            bloc: HomeFeedRxDartBloc()..getPosts(),
+            bloc: ListPostRxDartBloc()..getPosts(),
             child: const MainApp(),
           ),
         );
