@@ -21,7 +21,7 @@ class FlexButton extends StatelessWidget {
         color: isWhiteTheme == true ? Colors.white : null,
         borderRadius: BorderRadius.circular(22.5)
       ),
-      child: Center(child: Text("$text", style: isWhiteTheme == true ? AppStylesText.body15.bold.copyWith(color: AppColor.primaryColor,) : AppStylesText.body15.bold)),
+      child: Center(child: Text("$text", style: isWhiteTheme == true ? AppStylesText.body15.bold.copyWith(color: AppColor.primaryColor, fontSize: 17) : AppStylesText.body15.bold.copyWith(fontSize: 17))),
     ));
   }
 }

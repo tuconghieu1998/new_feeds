@@ -13,6 +13,7 @@ import 'package:news_feed/modules/home/blocs/comment_bloc.dart';
 import 'package:news_feed/modules/home/blocs/home_feed_rxdart_bloc.dart';
 import 'package:news_feed/modules/home/blocs/list_posts_rxdart_bloc.dart';
 import 'package:news_feed/modules/home/pages/comment_page.dart';
+import 'package:news_feed/modules/home/pages/create_post_page.dart';
 import 'package:news_feed/modules/home/pages/home_page.dart';
 import 'package:news_feed/modules/home/repos/home_feed_repo.dart';
 import 'package:news_feed/modules/main_app.dart';
@@ -58,6 +59,11 @@ class Routes {
             bloc: CommentBloc()..getComments(postId),
             child: const CommentPage()
         ));
+      case CreatePostPage.routeName:
+        return _buildRoute(
+          settings,
+          const CreatePostPage()
+        );
       //case RouteName.profile:
       // return _buildRouteDialog(
       //   settings,
