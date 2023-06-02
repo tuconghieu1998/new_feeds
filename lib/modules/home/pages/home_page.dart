@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_feed/blocs/app_state_bloc.dart';
+import 'package:news_feed/common/mixin/scroll_page_mixin.dart';
 import 'package:news_feed/common/widgets/stateful/search_bar.dart';
 import 'package:news_feed/common/widgets/stateless/circle_icon_button.dart';
 import 'package:news_feed/modules/home/blocs/home_feed_rxdart_bloc.dart';
@@ -15,9 +16,10 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with ScrollPageMixin {
   ListPostRxDartBloc? get bloc => BlocProvider.of<ListPostRxDartBloc>(context);
   AppStateBloc? get appStateBloc => BlocProvider.of<AppStateBloc>(context);
+  final _scrollCtrl = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,7 @@ class _HomePageState extends State<HomePage> {
                 final posts = snapshot.data;
                 if(posts!.isNotEmpty) {
                   return ListView.builder(
+                    controller: _scrollCtrl,
                     itemCount: posts.length,
                     itemBuilder: (_, int index) {
                       final item = posts[index];
@@ -67,4 +70,18 @@ class _HomePageState extends State<HomePage> {
       ],
     );
   }
+
+  @override
+  void dispose() {
+    _scrollCtrl.dispose();
+    super.dispose();
+  }
+  
+  @override
+  void loadMoreData() {
+    bloc?.getPosts();
+  }
+  
+  @override
+  ScrollController get scrollController => _scrollCtrl;
 }
