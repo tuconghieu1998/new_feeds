@@ -10,6 +10,7 @@ import '../manage_group/upload_group_state_ctrl.dart';
 import '../manage_group/upload_group_value.dart';
 import 'image_upload_item.dart';
 import 'upload_item.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 
 class ImageUploadGroup extends StatefulWidget {
   final int maxImage;
@@ -202,12 +203,22 @@ class _ImageUploadGroupState extends State<ImageUploadGroup> {
   Future<void> chooseAndUploadImage() async {
     List<Asset> resultList = <Asset>[];
     var localListImg = <ImageUploadItem>[];
-
-    final currentStatus = await Permission.photos.status;
-
+ 
+    final androidInfo = await DeviceInfoPlugin().androidInfo;
+    late Permission permission; 
+    if (androidInfo.version.sdkInt <= 32) {
+      // use [Permissions.storage.status]
+      permission = Permission.storage;
+    }  else {
+      /// use [Permissions.photos.status]
+      permission = Permission.photos;
+    }
+    final currentStatus = await permission.status;
     if (currentStatus == PermissionStatus.denied ||
         currentStatus == PermissionStatus.restricted) {
-      await Permission.photos.request();
+      PermissionStatus status = await permission.request();
+      print("Permission photo $status");
+
     } else if (currentStatus == PermissionStatus.permanentlyDenied) {
       openAppSettings();
     }
