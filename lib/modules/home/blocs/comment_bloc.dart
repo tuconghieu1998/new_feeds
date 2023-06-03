@@ -28,6 +28,7 @@ class CommentBloc extends BlocBase {
     try {
       final res = await CommentRepo().getComments(postId);
       if(res!=null) {
+        res.sort((a, b) => (b.createdAt ?? "").compareTo(a.createdAt ?? ""));
         _commentsCtrl.sink.add(res);
       }
     }
