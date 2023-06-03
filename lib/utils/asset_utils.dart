@@ -25,6 +25,7 @@ class AssetUtils {
   static const String icoPicture = "assets/icons/ico_picture.png"; 
   static const String icoVideo = "assets/icons/ico_video.png"; 
   static const String icoPlayList = "assets/icons/ico_playlist.png"; 
+  static const String icoSendMessage = "assets/icons/ico_send_message.png"; 
 
   // gif
   static const String gifLoading = "assets/gif/gif_loading.gif";

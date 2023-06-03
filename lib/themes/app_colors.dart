@@ -7,6 +7,7 @@ class AppColor {
   static const Color divideColor = Color(0xff242A37);
   static const Color backgroundSearchBar = Color.fromRGBO(142, 142, 147, 0.12);
   static const Color backgroundTabBar = Color(0xff1E2432);
+  static const Color grayTextField = Color(0xff485164);
 
   
   static const Color blue = Color(0xff007AFF);
