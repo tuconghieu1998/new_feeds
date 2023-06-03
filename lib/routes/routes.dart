@@ -35,7 +35,6 @@ final Map<String, WidgetBuilder> routes = {
   LoginOrSignUpPage.routeName: (context) => const LoginOrSignUpPage(),
   ForgotPasswordPage.routeName: (context) => const ForgotPasswordPage(),
   CreateAccountPage.routeName: (context) => const CreateAccountPage(),
-  CommentPage.routeName: (context) => const CommentPage(),
 };
 
 class Routes {
@@ -57,7 +56,7 @@ class Routes {
           settings, 
           BlocProvider(
             bloc: CommentBloc()..getComments(postId),
-            child: const CommentPage()
+            child: CommentPage(postId: postId)
         ));
       case CreatePostPage.routeName:
         return _buildRoute(

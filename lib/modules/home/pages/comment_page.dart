@@ -9,8 +9,9 @@ import 'package:news_feed/themes/styles_text.dart';
 import 'package:news_feed/utils/asset_utils.dart';
 
 class CommentPage extends StatefulWidget {
-  const CommentPage({super.key});
+  const CommentPage({super.key, required this.postId});
 
+  final String postId;
   static const String routeName = '/comments';
 
   @override
@@ -19,6 +20,37 @@ class CommentPage extends StatefulWidget {
 
 class _CommentPageState extends State<CommentPage> {
   CommentBloc? get bloc => BlocProvider.of<CommentBloc>(context);
+
+  late final TextEditingController _textCommentCtrl;
+  late final FocusNode _focusNodeTextComment;
+
+  @override
+  void initState() {
+    super.initState();
+    _textCommentCtrl = TextEditingController();
+    _focusNodeTextComment = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    _textCommentCtrl.dispose();
+    _focusNodeTextComment.dispose();
+    super.dispose();
+  }
+
+  void postComment() async {
+    try {
+      final text = _textCommentCtrl.text;
+      if(text == "") return;
+      _textCommentCtrl.clear();
+      _focusNodeTextComment.unfocus();
+      final res = await bloc?.postComment(widget.postId, text, const []);
+      print("Comment post ${widget.postId}, $text");
+    }
+    catch(e) {
+
+    } 
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +104,8 @@ class _CommentPageState extends State<CommentPage> {
                 children: [
                   Expanded(
                     child: TextField(
+                      controller: _textCommentCtrl,
+                      focusNode: _focusNodeTextComment,
                       decoration: InputDecoration(
                           filled: true,
                           fillColor: AppColor.grayTextField,
@@ -89,6 +123,7 @@ class _CommentPageState extends State<CommentPage> {
                     ),
                   ),
                   GestureDetector(
+                    onTap: postComment,
                     child: const ImageIcon(
                       AssetImage(AssetUtils.icoSendMessage),
                       size: 48,

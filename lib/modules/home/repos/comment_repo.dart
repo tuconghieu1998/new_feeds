@@ -2,8 +2,11 @@ import 'package:dio/dio.dart';
 import 'package:news_feed/config_env.dart';
 import 'package:news_feed/constants.dart';
 import 'package:news_feed/modules/home/models/comment.dart';
+import 'package:news_feed/providers/api_provider.dart';
 
 class CommentRepo {
+  final _apiProvider = ApiProvider();
+
   Future<List<Comment>?> getComments(String postId) async {
     try {
       final res = await Dio(BaseOptions(
@@ -25,6 +28,16 @@ class CommentRepo {
     }
     catch (e) {
       rethrow;
+    }
+  }
+
+  Future<bool> postComment(String postId, dynamic data) async {
+    try {
+      final res = await _apiProvider.post("/posts/$postId/comments", data: data);
+      return res.statusCode == 200;
+    }
+    catch(e) {
+      return false;
     }
   }
 }
