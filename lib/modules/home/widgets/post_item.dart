@@ -114,7 +114,7 @@ class _PostItemState extends State<PostItem> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            (data?.user?.lastName ?? "") +
+                            (data?.user?.lastName ?? "") + " " +
                                 (data?.user?.firstName ?? ""),
                             style: AppStylesText.body17
                                 .copyWith(fontSize: 17, height: 17 / 17),

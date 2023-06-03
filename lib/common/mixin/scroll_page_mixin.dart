@@ -9,7 +9,6 @@ mixin ScrollPageMixin<T extends StatefulWidget> on State<T> {
   void initState() {
     super.initState();
     scrollController.addListener(() {
-      print("indexscroll ${scrollController.position.extentAfter}, ${scrollController.position.extentBefore}");
       if(scrollController.position.extentAfter < 500 &&
         scrollController.position.extentBefore > 100) {
           loadMoreData();
