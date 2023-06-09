@@ -3,6 +3,7 @@ import 'package:news_feed/blocs/app_state_bloc.dart';
 import 'package:news_feed/common/widgets/stateless/avatar.dart';
 import 'package:news_feed/modules/profile/blocs/profile_bloc.dart';
 import 'package:news_feed/modules/profile/models/user_detail_model.dart';
+import 'package:news_feed/modules/profile/pages/edit_profile_page.dart';
 import 'package:news_feed/modules/profile/widgets/list_post_tab.dart';
 import 'package:news_feed/providers/bloc_provider.dart';
 import 'package:news_feed/themes/app_colors.dart';
@@ -72,8 +73,12 @@ class _MyProfilePageState extends State<MyProfilePage>
                     onSelected: (SelectItem item) {
                       switch(item) {
                         case SelectItem.logout:
-                          logout();
+                          logout();                          
                         break;
+                        case SelectItem.editProfile:
+                          Navigator.of(context).pushNamed(EditProfilePage.routeName);
+                        break;
+
                       }
                     },
                     itemBuilder: (BuildContext context) =>

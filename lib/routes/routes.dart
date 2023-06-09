@@ -19,6 +19,7 @@ import 'package:news_feed/modules/home/repos/home_feed_repo.dart';
 import 'package:news_feed/modules/main_app.dart';
 import 'package:news_feed/modules/message/pages/friend_page.dart';
 import 'package:news_feed/modules/message/pages/invite_friend_page.dart';
+import 'package:news_feed/modules/profile/pages/edit_profile_page.dart';
 import 'package:news_feed/providers/bloc_provider.dart';
 import 'package:news_feed/routes/route_name.dart';
 
@@ -62,6 +63,11 @@ class Routes {
         return _buildRoute(
           settings,
           const CreatePostPage()
+        );
+      case EditProfilePage.routeName:
+        return _buildRoute(
+          settings,
+          const EditProfilePage()
         );
       //case RouteName.profile:
       // return _buildRouteDialog(
