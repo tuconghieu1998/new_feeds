@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_feed/blocs/app_state_bloc.dart';
 import 'package:news_feed/common/widgets/stateless/avatar.dart';
 import 'package:news_feed/modules/profile/blocs/profile_bloc.dart';
 import 'package:news_feed/modules/profile/models/user_detail_model.dart';
@@ -22,6 +23,7 @@ class MyProfilePage extends StatefulWidget {
 class _MyProfilePageState extends State<MyProfilePage>
     with SingleTickerProviderStateMixin {
   ProfileBloc? get bloc => BlocProvider.of<ProfileBloc>(context);
+  AppStateBloc? get appStateBloc => BlocProvider.of<AppStateBloc>(context);
 
   late TabController _tabController;
 
@@ -35,6 +37,10 @@ class _MyProfilePageState extends State<MyProfilePage>
   void dispose() {
     _tabController.dispose();
     super.dispose();
+  }
+
+  void logout() {
+    appStateBloc?.logout();
   }
 
   @override
@@ -64,9 +70,11 @@ class _MyProfilePageState extends State<MyProfilePage>
                     ),
                     // Callback that sets the selected popup menu item.
                     onSelected: (SelectItem item) {
-                      setState(() {
-                        //selectedMenu = item;
-                      });
+                      switch(item) {
+                        case SelectItem.logout:
+                          logout();
+                        break;
+                      }
                     },
                     itemBuilder: (BuildContext context) =>
                         <PopupMenuEntry<SelectItem>>[
