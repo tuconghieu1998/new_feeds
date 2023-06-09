@@ -5,6 +5,7 @@ import 'package:news_feed/modules/profile/blocs/profile_bloc.dart';
 import 'package:news_feed/modules/profile/models/user_detail_model.dart';
 import 'package:news_feed/modules/profile/pages/edit_profile_page.dart';
 import 'package:news_feed/modules/profile/widgets/list_post_tab.dart';
+import 'package:news_feed/modules/setting/page/setting_page.dart';
 import 'package:news_feed/providers/bloc_provider.dart';
 import 'package:news_feed/themes/app_colors.dart';
 import 'package:news_feed/themes/styles_text.dart';
@@ -77,6 +78,9 @@ class _MyProfilePageState extends State<MyProfilePage>
                         break;
                         case SelectItem.editProfile:
                           Navigator.of(context).pushNamed(EditProfilePage.routeName);
+                        break;
+                        case SelectItem.setting:
+                          Navigator.of(context).pushNamed(SettingPage.routeName);
                         break;
 
                       }
