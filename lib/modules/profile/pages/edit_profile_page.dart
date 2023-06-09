@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:news_feed/common/widgets/stateless/avatar.dart';
 import 'package:news_feed/modules/profile/widgets/text_field_edit_widget.dart';
 import 'package:news_feed/themes/app_colors.dart';
@@ -47,7 +44,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   const Spacer(),
                   Column(
                     children: [
-                      Avatar(size: 165),
+                      const Avatar(size: 165),
                       TextButton(
                     onPressed: () {  },
                     child: Text("Change profile photo", style: AppStylesText.body17.copyWith(color: AppColor.primaryColor, fontSize: 17, fontWeight: FontWeight.w400),)
@@ -62,7 +59,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      TextFieldEditWidget()
+                      TextFieldEditWidget(header: "Username", value: "Darrell Bailey"),
+                      TextFieldEditWidget(header: "Email", value: "darell_bailey@gmail.com"),
+                      TextFieldEditWidget(header: "Phone", value: "+65 39879 343"),
+                      TextFieldEditWidget(header: "Gender", value: "Female"),
+                      TextFieldEditWidget(header: "Date of birth", value: "16/04/1988"),
                     ],
                   )
                 ))
