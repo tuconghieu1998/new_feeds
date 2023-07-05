@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:news_feed/modules/home/pages/home_page.dart';
 import 'package:news_feed/modules/message/pages/list_message_page.dart';
+import 'package:news_feed/modules/notification/blocs/notification_bloc.dart';
 import 'package:news_feed/modules/notification/pages/notification_page.dart';
 import 'package:news_feed/modules/profile/blocs/profile_bloc.dart';
 import 'package:news_feed/modules/profile/pages/my_profile_page.dart';
@@ -25,14 +26,16 @@ class _MainAppState extends State<MainApp> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = <Widget>[
     HomePage(),
     Text(
       'Index 1: Stream',
       style: optionStyle,
     ),
-    ListMessagePage(),
-    NotificationPage(),
+    const ListMessagePage(),
+    BlocProvider(
+      bloc: NotificationBloc()..getNotifications(),
+      child: const NotificationPage()),
     BlocProvider(
       bloc: ProfileBloc()..getUserDetail(),
       child: MyProfilePage())

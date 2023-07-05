@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:news_feed/common/widgets/stateless/avatar.dart';
 import 'package:news_feed/common/widgets/stateless/divide.dart';
+import 'package:news_feed/modules/notification/models/notification.dart';
 import 'package:news_feed/modules/notification/widgets/noti_image_content.dart';
 import 'package:news_feed/modules/notification/widgets/noti_standard_content.dart';
 import 'package:news_feed/modules/notification/widgets/noti_text_and_image_content.dart';
@@ -9,7 +10,9 @@ import 'package:news_feed/themes/styles_text.dart';
 enum NotiContentType { standard, image, textAndImage }
 
 class NotificationItem extends StatelessWidget {
-  const NotificationItem({super.key, this.contentType});
+  const NotificationItem({super.key, this.contentType, this.notificationData});
+
+  final NotificationModel? notificationData;
 
   final NotiContentType? contentType;
 
@@ -50,7 +53,7 @@ class NotificationItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Jimmy Nilson followed you",
+                          notificationData?.payload?.title ?? "",
                           style: AppStylesText.body15.bold,
                         ),
                         const SizedBox(

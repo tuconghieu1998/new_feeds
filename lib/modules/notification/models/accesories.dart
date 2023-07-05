@@ -1,16 +1,16 @@
 import 'package:news_feed/models/image_model.dart';
 
-class Accessory {
+class Accessories {
   String? model;
   int? modelId;
   ImageModel? thumbnail;
 
-  Accessory({this.model, this.modelId, this.thumbnail});
+  Accessories({this.model, this.modelId, this.thumbnail});
 
-  Accessory.fromJson(Map<String, dynamic> json) {
+  Accessories.fromJson(Map<String, dynamic> json) {
     model = json['model'];
     modelId = json['model_id'];
-    thumbnail = ImageModel.fromJson(json['thumbnail']);
+    thumbnail = json['thumbnail'] != null ? ImageModel.fromJson(json['thumbnail']) : null;
   }
 
   Map<String, dynamic> toJson() {

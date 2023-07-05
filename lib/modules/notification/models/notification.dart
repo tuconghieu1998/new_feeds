@@ -1,6 +1,6 @@
 import 'package:news_feed/modules/notification/models/notification_payload.dart';
 
-class Notification {
+class NotificationModel {
   String? id;
   int? status;
   String? createdAt;
@@ -15,7 +15,7 @@ class Notification {
   int? pushed;
   NotificationPayload? payload;
 
-  Notification(
+  NotificationModel(
       {this.id,
       this.status,
       this.createdAt,
@@ -30,7 +30,7 @@ class Notification {
       this.pushed,
       this.payload});
 
-  Notification.fromJson(Map<String, dynamic> json) {
+  NotificationModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     status = json['status'];
     createdAt = json['created_at'];
