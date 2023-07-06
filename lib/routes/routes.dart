@@ -19,6 +19,7 @@ import 'package:news_feed/modules/home/repos/home_feed_repo.dart';
 import 'package:news_feed/modules/main_app.dart';
 import 'package:news_feed/modules/message/pages/friend_page.dart';
 import 'package:news_feed/modules/message/pages/invite_friend_page.dart';
+import 'package:news_feed/modules/profile/blocs/profile_bloc.dart';
 import 'package:news_feed/modules/profile/pages/edit_profile_page.dart';
 import 'package:news_feed/modules/setting/page/setting_page.dart';
 import 'package:news_feed/providers/bloc_provider.dart';
@@ -47,7 +48,7 @@ class Routes {
           settings,
           //const MainApp()
           BlocProvider(
-            bloc: ListPostRxDartBloc()..getPosts(),
+            bloc: ProfileBloc()..getUserDetail(),
             child: const MainApp(),
           ),
         );

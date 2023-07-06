@@ -6,7 +6,6 @@ import 'package:news_feed/blocs/app_state_bloc.dart';
 import 'package:news_feed/common/mixin/scroll_page_mixin.dart';
 import 'package:news_feed/common/widgets/stateful/search_bar.dart';
 import 'package:news_feed/common/widgets/stateless/circle_icon_button.dart';
-import 'package:news_feed/modules/home/blocs/home_feed_rxdart_bloc.dart';
 import 'package:news_feed/modules/home/blocs/list_posts_rxdart_bloc.dart';
 import 'package:news_feed/modules/home/blocs/post_bloc.dart';
 import 'package:news_feed/modules/home/models/post.dart';

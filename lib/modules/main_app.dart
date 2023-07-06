@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:news_feed/modules/home/blocs/home_feed_rxdart_bloc.dart';
+import 'package:news_feed/modules/home/blocs/list_posts_rxdart_bloc.dart';
 import 'package:news_feed/modules/home/pages/home_page.dart';
 import 'package:news_feed/modules/message/pages/list_message_page.dart';
 import 'package:news_feed/modules/notification/blocs/notification_bloc.dart';
@@ -27,7 +29,9 @@ class _MainAppState extends State<MainApp> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static final List<Widget> _widgetOptions = <Widget>[
-    HomePage(),
+    BlocProvider(
+      child: HomePage(),
+      bloc: ListPostRxDartBloc()..getPosts()),
     Text(
       'Index 1: Stream',
       style: optionStyle,

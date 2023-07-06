@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     _authenticationBloc = AuthenticationBloc(AppAuthService());
     requestPermission();
-    getToken();
+    // getToken();
     initInfo();
   }
 

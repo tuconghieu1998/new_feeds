@@ -9,6 +9,7 @@ import 'package:news_feed/modules/home/models/post.dart';
 import 'package:news_feed/modules/home/pages/comment_page.dart';
 import 'package:news_feed/modules/home/repos/like_repo.dart';
 import 'package:news_feed/modules/home/widgets/action_post_item.dart';
+import 'package:news_feed/modules/profile/blocs/profile_bloc.dart';
 import 'package:news_feed/providers/bloc_provider.dart';
 import 'package:news_feed/providers/log_provider.dart';
 import 'package:news_feed/themes/app_colors.dart';
@@ -33,6 +34,7 @@ class _PostItemState extends State<PostItem> {
   Post? get data => widget.data;
   bool isLiked = false;
   final likeBloc = LikeBloc(LikeRepo(ModelType.post));
+  ProfileBloc? get profileBloc => BlocProvider.of<ProfileBloc>(context);
 
   @override
   void initState() {
@@ -53,7 +55,8 @@ class _PostItemState extends State<PostItem> {
     final event =
         !isLiked ? EventName.unLikePostDetail : EventName.likePostDetail;
 
-    AppEventBloc().emitEvent(BlocEvent(event, data?.id));
+    final isMine = profileBloc?.isMine(data!.user!.username!);
+    AppEventBloc().emitEvent(BlocEvent(event, [data?.id, isMine]));
   }
 
   @override
